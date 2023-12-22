@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0;
+        }
+
+        /* .my{
+        animation:move 1s 1 linear;
+        background-color: aqua;
+
+    }
+    @keyframes move {
+        0%{
+            top: -20px;
+        }
+        100%{
+            top: 0px;
+        }
+    } */
+    </style>
+</head>
+
+<body>
+    <div style="font-size: 60px;">
+        heading
+    </div>
+    <script>
+        var div = document.querySelector('div')
+
+
+        setInterval(() => {
+            var date = new Date()
+            var sec = date.getSeconds()
+            var min = date.getMinutes()
+            div.innerHTML = `${min}:${sec}`
+        }, 1000)
+    </script>
+</body>
+
+<!-- <body>
+    <nav style="background-color: black;height: 10vh;width: 100%;position: relative;"></nav>
+    <div style="height: 400vh;border: 2px solid red;"></div>
+</body> -->
+<script>
+    window.addEventListener('scroll', () => {
+        var nav = document.querySelector('nav')
+        if (scrollY > 300) {
+            // nav.style.backgroundColor="cyan"
+            nav.classList.add('my')
+            nav.style.position = "sticky"
+            nav.style.top = "0"
+            console.log(scrollY, "test");
+        }
+        else {
+            // nav.style.backgroundColor="black"
+            nav.classList.remove('my')
+            console.log(scrollY, "test");
+        }
+    })
+</script>
+
+<!-- <body>
+    <input type="text">
+    <button onclick="handleClick()">Add</button>
+    <button onclick="handleUpdate()">Update</button>
+    <ul></ul>
+
+    <script>
+        var inp = document.querySelector('input')
+        var ul = document.querySelector('ul')
+        showData()
+
+        console.log(ul, "open ul ");
+        function handleClick() {
+            console.log(inp.value, "test value ");
+            var myData = localStorage.getItem('data') ? JSON.parse(localStorage.getItem('data')) : []
+            myData.push(inp.value)
+            localStorage.setItem('data', JSON.stringify(myData))
+            inp.value = ""
+            showData()
+        }
+        function showData() {
+            ul.innerHTML=''
+            var my = JSON.parse(localStorage.getItem('data'))
+            my.forEach((ele, index) => {
+                var li = document.createElement('li')
+                li.innerHTML = `${ele} <button onclick='handleDel(${index})'>edit</button>`
+                ul.appendChild(li)
+            })
+        }
+        var myIndex=-1;
+        function handleDel(i) {
+            console.log(i, 'working')
+            var my = JSON.parse(localStorage.getItem('data'))
+
+            inp.value=my[i]
+            myIndex=i
+        }
+        function handleUpdate()
+        {
+            var my = JSON.parse(localStorage.getItem('data'))
+              my[myIndex]=inp.value
+              localStorage.setItem('data' , JSON.stringify(my))
+            alert('wert')
+            showData()
+        }
+    </script>
+</body> -->
+
+</html>
